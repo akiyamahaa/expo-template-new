@@ -1,21 +1,21 @@
 import React from 'react'
 import { Tabs } from 'expo-router'
-import { Image, Text, View } from 'react-native'
-
-import { icons } from '@/constants'
+import { Text, View } from 'react-native'
+import { Document, TaskSquare, Video } from 'iconsax-react-native'
 
 type TabIconProps = {
   name: string
-  icon: any
+  IconName: any
   focused: boolean
   color: string
   size: number
 }
 
-const TabIcon = ({ name, color, focused, icon }: TabIconProps) => {
+const TabIcon = ({ name, color, focused, IconName }: TabIconProps) => {
   return (
     <View className="items-center justify-center gap-2">
-      <Image source={icon} resizeMode="contain" tintColor={color} className="w-6 h-6" />
+      <IconName size="24" color={color} variant={'Outline'} />
+      {/* <Image source={icon} resizeMode="contain" tintColor={color} className="w-6 h-6" /> */}
       <Text style={{ color }} className={`${focused ? 'font-psemibold' : 'font-pregular'} text-xs`}>
         {name}
       </Text>
@@ -30,46 +30,36 @@ const TabsLayout = () => {
         screenOptions={{
           tabBarShowLabel: false,
           headerShown: false,
-          tabBarActiveTintColor: '#FFA001',
-          tabBarInactiveTintColor: '#CDCDE0',
+          tabBarActiveTintColor: '#D82C2A',
+          tabBarInactiveTintColor: '#6B7280',
           tabBarStyle: {
-            backgroundColor: '#161622',
-            borderTopWidth: 1,
-            borderTopColor: '#232533',
+            paddingTop: 8,
             height: 84,
           },
         }}
       >
         <Tabs.Screen
-          name="home"
+          name="video"
           options={{
-            title: 'Home',
+            title: 'Video',
             headerShown: false,
-            tabBarIcon: (props) => <TabIcon name="Home" icon={icons.home} {...props} />,
+            tabBarIcon: (props) => <TabIcon name="Video" IconName={Video} {...props} />,
           }}
         />
 
         <Tabs.Screen
-          name="bookmark"
+          name="lesson"
           options={{
-            title: 'Bookmark',
-            tabBarIcon: (props) => <TabIcon name="Bookmark" icon={icons.bookmark} {...props} />,
+            title: 'Bài giảng',
+            tabBarIcon: (props) => <TabIcon name="Bài giảng" IconName={Document} {...props} />,
           }}
         />
 
         <Tabs.Screen
-          name="create"
+          name="practice"
           options={{
-            title: 'Create',
-            tabBarIcon: (props) => <TabIcon name="Create" icon={icons.plus} {...props} />,
-          }}
-        />
-
-        <Tabs.Screen
-          name="profile"
-          options={{
-            title: 'Profile',
-            tabBarIcon: (props) => <TabIcon name="Profile" icon={icons.profile} {...props} />,
+            title: 'Bài tập',
+            tabBarIcon: (props) => <TabIcon name="Bài tập" IconName={TaskSquare} {...props} />,
           }}
         />
       </Tabs>
