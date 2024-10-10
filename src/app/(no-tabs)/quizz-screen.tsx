@@ -107,7 +107,7 @@ const QuizzScreen = () => {
       <View className="my-8 px-8">
         <TouchableOpacity disabled={!next} onPress={onNext}>
           <View
-            className={`w-full px-4 py-3.5 rounded-xl bg-blue-500 ${!next ? 'opacity-50' : 'opacity-100'}`}
+            className={`w-full px-4 py-3.5 rounded-xl bg-primary ${!next ? 'opacity-50' : 'opacity-100'}`}
           >
             <Text className="text-white text-center">
               {next && currQues === quizzes.length - 1 ? 'Hoàn thành' : 'Tiếp tục'}
