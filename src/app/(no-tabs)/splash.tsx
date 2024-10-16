@@ -1,4 +1,4 @@
-import { Image, SafeAreaView, StatusBar, Text, View } from 'react-native'
+import { ImageBackground, StatusBar, Text, View } from 'react-native'
 import React from 'react'
 import { images } from '@/constants'
 import CustomButton from '@/components/CustomButton'
@@ -8,22 +8,25 @@ const SplashScreen = () => {
   const router = useRouter()
 
   const onStart = () => {
-    router.push('/(tabs)/video')
+    router.push('/home')
   }
 
   return (
-    <SafeAreaView className="bg-white flex-1" style={{ paddingTop: StatusBar.currentHeight }}>
-      <View className="px-8 py-4 space-y-12">
-        <Image source={images.splashImg} className="w-full" />
-        <View>
-          <Text className="text-3xl font-bold text-gray-800 text-center">Fire Safety Heroes</Text>
-          <Text className="text-base font-normal text-gray-500 text-center">
-            Trang bị kiến thức phòng cháy chữa cháy cho trẻ em
+    <ImageBackground source={images.onboard} className="flex-1 justify-end">
+      <StatusBar barStyle={'light-content'} />
+      <View className="space-y-8 px-5 pb-16">
+        <View className="space-y-4">
+          <Text className="text-primary-600 font-medium text-md">ELDER SPHERE</Text>
+          <Text className="text-gray-800 text-4xl">
+            Cải thiện cuộc sống giúp người cao tuổi tự tin, thoải mái, sống vui khỏe.
+          </Text>
+          <Text className="text-lg text-gray-800 font-light">
+            Sức khỏe của bạn là khoản đầu tư, không phải khoản chi phí
           </Text>
         </View>
         <CustomButton title="Bắt đầu" onPress={onStart} />
       </View>
-    </SafeAreaView>
+    </ImageBackground>
   )
 }
 

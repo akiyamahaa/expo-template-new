@@ -7,7 +7,8 @@ export default function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       // router.replace('/(no-tabs)/splash')
-      router.replace('/(tabs)/video')
+      // router.replace('/(tabs)/video')
+      router.replace('/home')
     }, 200)
 
     return () => clearTimeout(timer)
@@ -15,7 +16,7 @@ export default function App() {
   return (
     <>
       <View className="flex-1 bg-white justify-center items-center">
-        <Image source={images.logo} className="w-[186px] h-[276px]" />
+        <Image source={images.logo} className="w-[220px] h-[200px]" />
       </View>
     </>
   )

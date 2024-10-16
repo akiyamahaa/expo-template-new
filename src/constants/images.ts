@@ -1,30 +1,31 @@
-import profile from '@/assets/images/profile.png'
-import thumbnail from '@/assets/images/thumbnail.png'
-import cards from '@/assets/images/cards.png'
-import path from '@/assets/images/path.png'
-import logo from '@/assets/images/fire-prevent/logo.png'
-import splashImg from '@/assets/images/fire-prevent/splashImg.png'
+import logo from '@/assets/images/elder/logo.png'
+import onboard from '@/assets/images/elder/onboard.png'
+import congnghe from '@/assets/images/elder/congnghe.jpeg'
+import amnhac from '@/assets/images/elder/amnhac.jpeg'
+import theduc from '@/assets/images/elder/theduc.jpeg'
+import tintuc from '@/assets/images/elder/tintuc.jpeg'
+import cachsudungcongnghe from '@/assets/images/elder/cachsudungcongnghe.jpeg'
+import nhactrutinh from '@/assets/images/elder/nhactrutinh.jpeg'
+import bangkieu from '@/assets/images/elder/bangkieu.jpeg'
+import aoemchuamacmotlan from '@/assets/images/elder/aoemchuamacmotlan.jpeg'
+import hittho from '@/assets/images/elder/hittho.jpeg'
+import unknownArtistImage from '@/assets/images/elder/unknown_artist.png'
+import unknownTrackImage from '@/assets/images/elder/unknown_track.png'
+import { Image } from 'react-native'
 
-import logoSmall from '@/assets/images/logo-small.png'
-import empty from '@/assets/images/empty.png'
-import post1 from '@/assets/images/fire-prevent/post1.jpeg'
-import post2 from '@/assets/images/fire-prevent/post2.jpeg'
-import practiceimg from '@/assets/images/fire-prevent/practiceimg.png'
-import bad_logo from '@/assets/images/fire-prevent/bad_logo.png'
-import good_logo from '@/assets/images/fire-prevent/good_logo.png'
+export const unknownTrackImageUri = Image.resolveAssetSource(unknownTrackImage).uri
+export const unknownArtistImageUri = Image.resolveAssetSource(unknownArtistImage).uri
 
 export default {
-  profile,
-  splashImg,
-  thumbnail,
-  cards,
-  path,
   logo,
-  logoSmall,
-  empty,
-  post1,
-  post2,
-  practiceimg,
-  bad_logo,
-  good_logo,
+  onboard,
+  congnghe,
+  amnhac,
+  theduc,
+  tintuc,
+  cachsudungcongnghe,
+  nhactrutinh,
+  bangkieu,
+  aoemchuamacmotlan,
+  hittho,
 }

@@ -1,90 +1,38 @@
-import {
-  Image,
-  ImageBackground,
-  ScrollView,
-  StatusBar,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native'
-import React, { useCallback, useState } from 'react'
-import YoutubePlayer from 'react-native-youtube-iframe'
+import { ImageBackground, ScrollView, StatusBar, Text, View } from 'react-native'
+import React from 'react'
 import ScreenWrapper from '@/components/ScreenWrapper'
 import { images } from '@/constants'
-import { ArrowLeft } from 'iconsax-react-native'
-import { Redirect, useLocalSearchParams, useRouter } from 'expo-router'
-import { totalData } from '../data/data'
-import HeaderComponent from '@/components/HeaderComponent'
+import ButtonBack from '@/components/elder/ButtonBack'
 
 const DetailPage = () => {
-  const params = useLocalSearchParams()
-  const router = useRouter()
-  const { id } = params
-  console.log('🚀 ~ DetailPage ~ id:', id)
-  const [item] = useState(totalData.find((item) => item.id === Number(id)))
-  const [playing, setPlaying] = useState(false)
-
-  const onStateChange = useCallback((state: any) => {
-    if (state === 'ended') {
-      setPlaying(false)
-    }
-  }, [])
-
-  if (!item) {
-    return <Redirect href={'(tabs)/video'} />
-  }
-
-  console.log('🚀 ~ DetailPage ~ item:', item)
   return (
-    <View className="flex-1 bg-white">
-      <ScreenWrapper>
-        <HeaderComponent
-          title={item.youtubeId ? 'Video chi tiết' : 'Bài học chi tiết'}
-          iconLeft={
-            <TouchableOpacity onPress={() => router.back()}>
-              <ArrowLeft size={24} color="black" />
-            </TouchableOpacity>
-          }
-        />
-        {item.youtubeId ? (
-          <View className="h-60 w-full">
-            <YoutubePlayer
-              height={240}
-              play={playing}
-              videoId={item.youtubeId}
-              onChangeState={onStateChange}
-            />
-          </View>
-        ) : (
-          <View>
-            <StatusBar barStyle={'light-content'} />
-            <ImageBackground source={images.post1} className="h-80 w-full relative">
-              {/* Blur Layout */}
-              <View className="bg-gray-800 absolute top-0 left-0 right-0 bottom-0 opacity-30" />
-            </ImageBackground>
-          </View>
-        )}
-      </ScreenWrapper>
+    <View className="flex-1 bg-gray-200">
+      <View>
+        <StatusBar barStyle={'light-content'} />
+        <ImageBackground source={images.cachsudungcongnghe} className="h-52 w-full relative">
+          <ScreenWrapper>
+            <View className="flex-row px-5 relative z-10">
+              <ButtonBack isBlur={true} />
+            </View>
+          </ScreenWrapper>
+          {/* Blur Layout */}
+          <View className="bg-gray-800 absolute top-0 left-0 right-0 bottom-0 opacity-40" />
+        </ImageBackground>
+      </View>
       <ScrollView className="flex-1 px-4 py-6 bg-background-300 -mt-4 rounded-t-3xl space-y-4">
         <View>
-          <Text className="font-bold text-[20px] text-gray-800">{item?.title}</Text>
-          {item.youtubeId && <Text className="text-xs text-gray-800">nguồn: Youtube</Text>}
+          <Text className="font-bold text-[20px] text-gray-800">Sử dụng internet an toàn</Text>
         </View>
-        <Text className="font-normal text-md text-gray-800">{item?.description}</Text>
         <View className="space-y-4">
-          {item?.body.map((bodyElm) => (
-            <View key={`${item.title}-${bodyElm.title}`} className="space-y-2">
-              <Text className="font-semibold text-md text-gray-800">{bodyElm.title}</Text>
-              {bodyElm.image && (
-                <Image
-                  source={bodyElm.image}
-                  className="w-full h-52 rounded-lg"
-                  resizeMode="cover"
-                />
-              )}
-              <Text className="font-normal text-gray-800">{bodyElm.content}</Text>
-            </View>
-          ))}
+          <Text className="text-base text-gray-500 leading-6">
+            Lorem ipsum dolor sit amet consectetur. Ultrices curabitur lectus vitae amet aliquam.
+            Vitae pharetra viverra augue mi. Varius eu massa nisl et ipsum. Elementum nunc
+            ullamcorper id nisi egestas leo adipiscing nisl. Orci dui molestie ultrices nec est
+            malesuada. Neque nunc aliquet tincidunt dolor eleifend tincidunt eget proin. Dignissim
+            fusce libero viverra amet gravida id dolor tristique. Integer pharetra netus donec
+            sollicitudin risus amet morbi. Rhoncus vitae et vitae tellus convallis aliquam
+            tristique. Semper quam fames suspendisse est.
+          </Text>
         </View>
         <View className="h-12" />
       </ScrollView>

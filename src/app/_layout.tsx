@@ -1,8 +1,13 @@
 import { SplashScreen, Stack } from 'expo-router'
 import { useFonts } from 'expo-font'
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 import { Provider } from 'react-redux'
 import store from '@/redux'
+import TrackPlayer from 'react-native-track-player'
+import service from '@/constants/playbackService'
+import { useSetupTrackPlayer } from './hooks/useSetupTrackPlayer'
+import { useLogTrackPlayerState } from './hooks/useLogTrackPlayerState'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
 
 SplashScreen.preventAutoHideAsync()
 
@@ -19,6 +24,21 @@ const RootLayout = () => {
     'Poppins-Thin': require('@/assets/fonts/Poppins-Thin.ttf'),
   })
 
+  const handleTrackPlayerLoaded = useCallback(() => {
+    SplashScreen.hideAsync()
+  }, [])
+
+  useSetupTrackPlayer({
+    onLoad: handleTrackPlayerLoaded,
+  })
+
+  useLogTrackPlayerState()
+
+  useEffect(() => {
+    TrackPlayer.registerPlaybackService(() => service)
+    console.log('go')
+  }, [])
+
   useEffect(() => {
     if (error) throw error
     if (fontsLoaded) SplashScreen.hideAsync()
@@ -28,7 +48,9 @@ const RootLayout = () => {
 
   return (
     <Provider store={store}>
-      <Stack screenOptions={{ headerShown: false }}></Stack>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <Stack screenOptions={{ headerShown: false }}></Stack>
+      </GestureHandlerRootView>
     </Provider>
   )
 }
