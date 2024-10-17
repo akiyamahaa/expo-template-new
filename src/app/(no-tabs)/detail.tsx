@@ -7,18 +7,25 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import ScreenWrapper from '@/components/ScreenWrapper'
 import ButtonBack from '@/components/elder/ButtonBack'
 import { useLocalSearchParams } from 'expo-router'
 import { totalData } from '../data/data'
 import * as Speech from 'expo-speech'
 import { speakText } from '@/utils/function'
+import YoutubePlayer from 'react-native-youtube-iframe'
 
 const DetailPage = () => {
   const params = useLocalSearchParams()
   const { id, type }: any = params
-  console.log('🚀 ~ DetailPage ~', id, type)
+  const [playing, setPlaying] = useState(false)
+
+  const onStateChange = useCallback((state: any) => {
+    if (state === 'ended') {
+      setPlaying(false)
+    }
+  }, [])
   const [data] = useState(
     totalData.find((item) => item.id === Number(id) && item.type === Number(type)),
   )
@@ -69,6 +76,16 @@ const DetailPage = () => {
         </ImageBackground>
       </View>
       <ScrollView className="flex-1 px-4 py-6 bg-background-300 -mt-4 rounded-t-3xl space-y-4">
+        {data!.youtubeId && (
+          <View className="h-48 w-full">
+            <YoutubePlayer
+              height={240}
+              play={playing}
+              videoId={data!.youtubeId}
+              onChangeState={onStateChange}
+            />
+          </View>
+        )}
         <TouchableOpacity onPress={handleSpeak}>
           <View className="w-full text-center bg-primary-600 p-2.5 rounded-xl mt-4">
             <Text className="text-center text-white text-lg font-semibold">Đọc nội dung</Text>
