@@ -1,15 +1,15 @@
-import TrackPlayer from 'react-native-track-player'
+import TrackPlayer, { Event } from 'react-native-track-player'
 
 const service = async () => {
-  TrackPlayer.addEventListener('remote-play', () => {
+  TrackPlayer.addEventListener(Event.RemotePlay, () => {
     TrackPlayer.play()
   })
 
-  TrackPlayer.addEventListener('remote-pause', () => {
+  TrackPlayer.addEventListener(Event.RemotePause, () => {
     TrackPlayer.pause()
   })
 
-  TrackPlayer.addEventListener('remote-seek', (event) => {
+  TrackPlayer.addEventListener(Event.RemoteSeek, (event) => {
     TrackPlayer.seekTo(event.position)
   })
 

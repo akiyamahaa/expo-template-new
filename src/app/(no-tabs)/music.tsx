@@ -3,10 +3,12 @@ import React from 'react'
 import ScreenWrapper from '@/components/ScreenWrapper'
 import Header from '@/components/elder/Header'
 import SlideImage from '@/components/slider'
-import { videoData } from '../data/data'
 import CollectionCard from '@/components/music/CollectionCard'
 import SingerCard from '@/components/music/SingerCard'
 import ButtonSearch from '@/components/elder/ButtonSearch'
+import { listAlbums, listAuthor } from '../data/music'
+import { EMusicType } from '@/types/common'
+import { getRandomArray } from '@/utils/function'
 
 const music = () => {
   return (
@@ -17,35 +19,65 @@ const music = () => {
             <Header />
             <View className="space-y-4">
               <Text className="text-3xl text-gray-800 leading-9">Gợi ý cho bạn</Text>
-              <ButtonSearch />
+              <View className="my-4">
+                <ButtonSearch />
+              </View>
             </View>
           </View>
         </ScreenWrapper>
-        <SlideImage itemList={videoData} />
+        <SlideImage itemList={getRandomArray(listAlbums, 3)} />
         <View className="space-y-6 mt-6">
           <View className="px-5 space-y-4">
             <Text className="text-2xl font-medium text-gray-800">Bộ sưu tập mới</Text>
-            <View>
-              <CollectionCard />
-            </View>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              <View className="flex-row items-center">
+                {getRandomArray(listAlbums, 3).map((album) => (
+                  <View key={`${album.id}-${album.musicType}`} className="mr-2">
+                    <CollectionCard album={album} />
+                  </View>
+                ))}
+              </View>
+            </ScrollView>
           </View>
           <View className="px-5 space-y-4">
             <Text className="text-2xl font-medium text-gray-800">Nghệ sĩ</Text>
-            <View>
-              <SingerCard />
-            </View>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              <View className="flex-row items-center">
+                {listAuthor.map((author) => (
+                  <View key={author.name} className="mr-2">
+                    <SingerCard author={author} />
+                  </View>
+                ))}
+              </View>
+            </ScrollView>
           </View>
           <View className="px-5 space-y-4">
             <Text className="text-2xl font-medium text-gray-800">Nhạc Bolero</Text>
-            <View>
-              <CollectionCard />
-            </View>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              <View className="flex-row items-center">
+                {listAlbums
+                  .filter((list) => list.musicType === EMusicType.BOLERO)
+                  .map((album) => (
+                    <View key={`${album.id}-${album.musicType}`} className="mr-2">
+                      <CollectionCard album={album} />
+                    </View>
+                  ))}
+              </View>
+            </ScrollView>
           </View>
           <View className="px-5 space-y-4">
             <Text className="text-2xl font-medium text-gray-800">Nhạc thiền</Text>
-            <View>
-              <CollectionCard />
-            </View>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              <View className="flex-row items-center">
+                {listAlbums
+                  .filter((list) => list.musicType === EMusicType.THIEN)
+                  .map((album) => (
+                    <View key={`${album.id}-${album.musicType}`} className="mr-2">
+                      <CollectionCard album={album} />
+                    </View>
+                  ))}
+              </View>
+            </ScrollView>
           </View>
         </View>
       </ScrollView>

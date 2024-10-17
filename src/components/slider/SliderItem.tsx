@@ -7,12 +7,13 @@ import Animated, {
   useAnimatedStyle,
 } from 'react-native-reanimated'
 import { useRouter } from 'expo-router'
-import { IData } from '@/types/common'
 import { BlurView } from 'expo-blur'
 import { Headphone } from 'iconsax-react-native'
+import { IAlbum } from '@/app/data/music'
+import { getRandomInt } from '@/utils/function'
 
 type SliderItemProps = {
-  item: IData
+  item: IAlbum
   index: number
   scrollX: SharedValue<number>
 }
@@ -49,10 +50,11 @@ const SliderItem = ({ item, index, scrollX }: SliderItemProps) => {
     <TouchableOpacity
       onPress={() =>
         router.push({
-          pathname: '/detail',
-          // params: {
-          //   id: item.id,
-          // },
+          pathname: '/music-list',
+          params: {
+            id: item.id,
+            musicType: item.musicType,
+          },
         })
       }
     >
@@ -62,7 +64,7 @@ const SliderItem = ({ item, index, scrollX }: SliderItemProps) => {
       >
         <View className="h-[200px] rounded-3xl overflow-hidden" style={{ width: imageWidth }}>
           <ImageBackground
-            source={item.image}
+            source={{ uri: item.thumbnail }}
             resizeMode="cover"
             style={{ width: imageWidth }}
             className="h-[200px] justify-end items-end"
@@ -71,7 +73,7 @@ const SliderItem = ({ item, index, scrollX }: SliderItemProps) => {
               <View className="rounded-full overflow-hidden">
                 <BlurView intensity={50} className="flex-row gap-1 px-6 py-2">
                   <Headphone size={16} color="#fff" />
-                  <Text className="text-sm text-white">12952</Text>
+                  <Text className="text-sm text-white">{getRandomInt(3000, 15000)}</Text>
                 </BlurView>
               </View>
             </View>

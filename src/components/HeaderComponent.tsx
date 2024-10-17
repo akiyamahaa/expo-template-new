@@ -11,17 +11,18 @@ interface IHeaderComponentProps {
 export default function HeaderComponent({
   iconLeft,
   title,
-  iconRight,
   styleHeader,
   styleTitle,
 }: IHeaderComponentProps) {
   return (
-    <View className={`flex flex-row justify-between mb-2 px-4 ${styleHeader}`}>
+    <View className={`flex flex-row justify-between items-center mb-2 ${styleHeader}`}>
       {iconLeft ? <View>{iconLeft}</View> : <View className="w-6" />}
-      <View>
-        <Text className={`text-xl font-bold text-primary-600 ${styleTitle}`}>{title}</Text>
+      <View className="px-2 w-2/3 text-center">
+        <Text className={`text-xl font-bold text-primary-600 text-center ${styleTitle}`}>
+          {title}
+        </Text>
       </View>
-      {iconRight ? <View>{iconRight}</View> : <View className="w-6" />}
+      <View className="w-9 h-9" />
     </View>
   )
 }

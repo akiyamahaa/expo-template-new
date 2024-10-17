@@ -8,3 +8,7 @@ export const formatTime = (time: number) => {
   const seconds = Math.floor((time % 60000) / 1000)
   return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`
 }
+
+export function getRandomInt(a: number, b: number) {
+  return Math.floor(Math.random() * (b - a + 1)) + a
+}

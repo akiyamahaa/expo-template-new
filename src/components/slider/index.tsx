@@ -2,10 +2,10 @@ import { View } from 'react-native'
 import React from 'react'
 import Animated, { useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated'
 import SliderItem from './SliderItem'
-import { IData } from '@/types/common'
+import { IAlbum } from '@/app/data/music'
 
 type Props = {
-  itemList: IData[]
+  itemList: IAlbum[]
 }
 const SlideImage = ({ itemList }: Props) => {
   const scrollX = useSharedValue(0)

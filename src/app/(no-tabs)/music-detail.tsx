@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native'
-import { useActiveTrack } from 'react-native-track-player'
+import TrackPlayer, { useActiveTrack } from 'react-native-track-player'
 import { router } from 'expo-router'
 import HeaderComponent from '@/components/HeaderComponent'
 import React from 'react'
@@ -16,9 +16,15 @@ import { PlayerProgressBar } from '@/components/elder/PlayerProgressbar'
 import { PlayerControls } from '@/components/elder/PlayerControls'
 import { defaultStyles } from '../styles'
 import { screenPadding } from '@/constants/tokens'
+import { BlurView } from 'expo-blur'
+import { ArrowLeft } from 'iconsax-react-native'
 
 const MusicDetail = () => {
   const activeTrack = useActiveTrack()
+  if (!activeTrack) {
+    return <View />
+  }
+
   return (
     <ImageBackground
       source={{
@@ -31,10 +37,23 @@ const MusicDetail = () => {
       <View className="flex-1 opacity-95" style={{ backgroundColor: '#000000BF' }}>
         <View style={styles.overlayContainer}>
           <HeaderComponent
-            title="Sách nói"
+            title={activeTrack?.name}
             iconLeft={
-              <TouchableOpacity onPress={() => router.back()}>
-                <AntDesign name="left" size={24} color="#FFFFFF" />
+              <TouchableOpacity
+                onPress={() => {
+                  TrackPlayer.stop()
+                  router.back()
+                }}
+              >
+                <View className="rounded-full overflow-hidden">
+                  <BlurView
+                    className="p-3 rounded-full"
+                    style={{ backgroundColor: '#F3F4F61F' }}
+                    intensity={12}
+                  >
+                    <ArrowLeft size={24} color="#fff" />
+                  </BlurView>
+                </View>
               </TouchableOpacity>
             }
             styleHeader="mt-12"
