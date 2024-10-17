@@ -16,8 +16,9 @@ export interface IData {
 }
 
 export enum ETypeData {
-  VIDEO,
-  LESSON,
+  TECHNOLOGY,
+  EXERCISE,
+  LIBRARY,
 }
 
 export enum EMusicType {

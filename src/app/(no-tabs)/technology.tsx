@@ -3,6 +3,7 @@ import React from 'react'
 import ScreenWrapper from '@/components/ScreenWrapper'
 import InfoBigCard from '@/components/elder/InfoBigCard'
 import Header from '@/components/elder/Header'
+import { technologyData } from '../data/data'
 
 const technology = () => {
   return (
@@ -20,15 +21,11 @@ const technology = () => {
               </Text>
             </View>
             <View className="space-y-4">
-              <View>
-                <InfoBigCard />
-              </View>
-              <View>
-                <InfoBigCard />
-              </View>
-              <View>
-                <InfoBigCard />
-              </View>
+              {technologyData.map((data) => (
+                <View key={data.id}>
+                  <InfoBigCard data={data} />
+                </View>
+              ))}
             </View>
           </View>
         </ScreenWrapper>

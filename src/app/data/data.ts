@@ -1,146 +1,42 @@
-import { images } from '@/constants'
 import { ETypeData, IData } from '@/types/common'
 
-export const videoData: IData[] = [
+export const technologyData: IData[] = [
   {
     id: 1,
-    image: images.nhactrutinh,
-    type: ETypeData.VIDEO,
-    youtubeId: 'k8uMv-KDG_s',
-    title: 'Cách nhận biết nguy cơ cháy nổ',
+    image:
+      'https://s3-alpha-sig.figma.com/img/bdc7/963c/4417d26cacefdd147c3734b37f72a338?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=QHELaF6QMr3GlUEDem76dvnQIWkwpNlQr-aC8qD9BzYSC69BXSNpcdAjSc48LhWkgfWcM--e0X2a7IdD4xykItg2-G27d0zNYjPruGqbFJc6P7hwS44BYspqGXnPTHDRsi0AaW4FYN9XSCDiEMr5YSOvYkGoWZXOV0aC4iixWLUO7mPqNctuMQAJMtters-uFo5jKbdTTwgO68L5rVm8Vrt5O0fr1otz2SY75mQDkrcKQ2U8sLzORgxmYY8dgob6~tQlKe4WpWlrPraLVClKFi5Tmn1hhZstYnKEmEGDroGEqbsPJTWfEzYBLrK9p4ZB-FjAeG82m6FZu1AAs169Zw__',
+    type: ETypeData.TECHNOLOGY,
+    title: 'Sử dụng internet an toàn',
     description:
-      'Cháy nổ là một trong những nguy cơ tiềm ẩn gây thiệt hại nghiêm trọng đến tính mạng và tài sản. Việc nhận biết sớm các nguy cơ cháy nổ có thể giúp chúng ta phòng tránh và hạn chế các hậu quả đáng tiếc. Bài viết này sẽ giúp bạn nhận diện các nguyên nhân phổ biến dẫn đến cháy nổ trong cuộc sống hàng ngày và cách phòng ngừa hiệu quả.',
+      'Internet mang lại nhiều tiện ích nhưng cũng tiềm ẩn nhiều nguy cơ đối với người lớn tuổi. Bài viết này hướng dẫn cách sử dụng internet an toàn cho người lớn tuổi để tránh các rủi ro như lừa đảo, virus và bảo mật thông tin cá nhân.',
     body: [
       {
-        title: 'Nguyên nhân cháy nổ từ thiết bị điện',
+        title: 'Không Chia Sẻ Thông Tin Cá Nhân Công Khai',
         content:
-          'Thiết bị điện bị hỏng, chập mạch, quá tải hay việc sử dụng dây điện không đúng tiêu chuẩn đều là những nguyên nhân phổ biến gây ra cháy nổ. Để phòng tránh, cần thường xuyên kiểm tra và bảo trì các thiết bị điện trong nhà.',
+          'Người lớn tuổi cần tránh chia sẻ các thông tin cá nhân nhạy cảm như số tài khoản, chứng minh nhân dân trên mạng xã hội hoặc qua email không rõ nguồn gốc để tránh bị lừa đảo và mất mát tài sản.',
       },
       {
-        title: 'Cháy nổ do các chất dễ cháy',
+        title: 'Sử Dụng Mật Khẩu Mạnh',
         content:
-          'Các chất dễ cháy như xăng, dầu, gas nếu không được bảo quản đúng cách có thể dẫn đến cháy nổ. Đặc biệt, việc sử dụng nguồn nhiệt gần những chất này sẽ làm tăng nguy cơ cháy nổ.',
+          'Tạo mật khẩu phức tạp, kết hợp chữ hoa, chữ thường, số và ký tự đặc biệt. Nên thay đổi mật khẩu định kỳ và sử dụng mật khẩu khác nhau cho mỗi tài khoản.',
       },
       {
-        title: 'Sử dụng lửa không an toàn',
+        title: 'Cẩn Thận Khi Mở Email Và Tin Nhắn Lạ',
         content:
-          'Việc sử dụng lửa trong sinh hoạt như nấu ăn, đốt rác mà không có biện pháp an toàn có thể dẫn đến hỏa hoạn. Luôn cẩn thận với nguồn lửa và đảm bảo các thiết bị chữa cháy luôn sẵn sàng.',
+          'Không mở email hoặc tin nhắn từ người lạ chứa liên kết hoặc yêu cầu cung cấp thông tin cá nhân. Email lừa đảo có thể chứa mã độc gây mất tài khoản hoặc thông tin nhạy cảm.',
       },
       {
-        title: 'Ý nghĩa của việc phòng cháy chữa cháy',
+        title: 'Sử Dụng Phần Mềm Diệt Virus',
         content:
-          'Nhận diện sớm các nguy cơ cháy nổ và thực hiện các biện pháp phòng ngừa không chỉ giúp bảo vệ tài sản mà còn bảo vệ tính mạng con người. Hiểu rõ và tuân thủ quy định phòng cháy chữa cháy là trách nhiệm của mỗi cá nhân.',
-      },
-    ],
-  },
-  {
-    id: 2,
-    image: images.nhactrutinh,
-    type: ETypeData.VIDEO,
-    youtubeId: 'rq8-L9C_bRE',
-    title: 'Hướng Dẫn Gọi Cứu Hộ Khi Cần Thiết',
-    description:
-      'Khi gặp tình huống khẩn cấp như tai nạn giao thông, cháy nổ, hoặc sự cố đe dọa tính mạng, việc gọi cứu hộ kịp thời là rất quan trọng. Bài viết này sẽ cung cấp hướng dẫn chi tiết về cách gọi cứu hộ, những thông tin cần cung cấp và những lưu ý quan trọng để đảm bảo an toàn cho bạn và người xung quanh.',
-    body: [
-      {
-        title: 'Bước 1: Xác định tình huống khẩn cấp',
-        content:
-          'Đầu tiên, hãy nhanh chóng đánh giá tình huống để xác định xem có cần thiết phải gọi cứu hộ hay không. Nếu bạn hoặc người xung quanh đang gặp nguy hiểm về tính mạng hoặc cần hỗ trợ khẩn cấp, hãy gọi ngay cho các dịch vụ cứu hộ như 113 (cảnh sát), 114 (cứu hỏa), hoặc 115 (cấp cứu y tế).',
+          'Cài đặt và cập nhật phần mềm diệt virus thường xuyên giúp bảo vệ thiết bị của bạn khỏi virus và các cuộc tấn công mạng.',
       },
       {
-        title: 'Bước 2: Gọi số cứu hộ phù hợp',
+        title: 'Cẩn Trọng Khi Mua Sắm Trực Tuyến',
         content:
-          'Dùng điện thoại để gọi đến số cứu hộ phù hợp với tình huống bạn đang gặp. Ví dụ:\n- 113: Báo cáo tai nạn giao thông, tội phạm, hoặc các tình huống đe dọa an ninh.\n- 114: Báo cáo cháy nổ, sự cố liên quan đến gas hoặc hóa chất nguy hiểm.\n- 115: Gọi cấp cứu y tế khi có người bị thương nặng hoặc đe dọa tính mạng.',
-      },
-      {
-        title: 'Bước 3: Cung cấp thông tin cần thiết',
-        content:
-          'Khi liên lạc với dịch vụ cứu hộ, hãy bình tĩnh và cung cấp thông tin chi tiết bao gồm:\n- Địa điểm chính xác của sự cố (nếu có thể, mô tả cụ thể vị trí).\n- Loại sự cố (cháy, tai nạn, người bị thương...)\n- Số lượng người bị ảnh hưởng và mức độ nghiêm trọng của tình huống.\n- Các thông tin khác có thể giúp đội cứu hộ phản ứng nhanh hơn (ví dụ: lửa có lan rộng không, người bị thương có tỉnh táo không...).',
-      },
-      {
-        title: 'Bước 4: Chờ cứu hộ và đảm bảo an toàn',
-        content:
-          'Sau khi gọi cứu hộ, hãy làm theo hướng dẫn của nhân viên trực tổng đài và cố gắng giữ an toàn cho bạn và người xung quanh. Trong trường hợp cháy nổ hoặc nguy hiểm khác, hãy tìm cách sơ tán đến nơi an toàn và chờ cứu hộ đến.',
-      },
-      {
-        title: 'Lưu ý quan trọng khi gọi cứu hộ',
-        content:
-          '1. Luôn giữ bình tĩnh và trả lời các câu hỏi của tổng đài viên một cách rõ ràng.\n2. Tránh hoảng loạn hoặc cúp máy khi chưa được hướng dẫn.\n3. Nếu bạn không thể nói được, hãy tìm cách cung cấp thông tin qua tin nhắn hoặc sử dụng các ứng dụng khẩn cấp nếu có.\n4. Không gọi số cứu hộ nếu không thực sự cần thiết, vì có thể làm ảnh hưởng đến người đang gặp tình huống nguy hiểm hơn.',
-      },
-    ],
-  },
-  {
-    id: 3,
-    image: images.nhactrutinh,
-    type: ETypeData.VIDEO,
-    youtubeId: 'rq8-L9C_bRE',
-    title: 'Hướng Dẫn Gọi Cứu Hộ Khi Cần Thiết',
-    description:
-      'Khi gặp tình huống khẩn cấp như tai nạn giao thông, cháy nổ, hoặc sự cố đe dọa tính mạng, việc gọi cứu hộ kịp thời là rất quan trọng. Bài viết này sẽ cung cấp hướng dẫn chi tiết về cách gọi cứu hộ, những thông tin cần cung cấp và những lưu ý quan trọng để đảm bảo an toàn cho bạn và người xung quanh.',
-    body: [
-      {
-        title: 'Bước 1: Xác định tình huống khẩn cấp',
-        content:
-          'Đầu tiên, hãy nhanh chóng đánh giá tình huống để xác định xem có cần thiết phải gọi cứu hộ hay không. Nếu bạn hoặc người xung quanh đang gặp nguy hiểm về tính mạng hoặc cần hỗ trợ khẩn cấp, hãy gọi ngay cho các dịch vụ cứu hộ như 113 (cảnh sát), 114 (cứu hỏa), hoặc 115 (cấp cứu y tế).',
-      },
-      {
-        title: 'Bước 2: Gọi số cứu hộ phù hợp',
-        content:
-          'Dùng điện thoại để gọi đến số cứu hộ phù hợp với tình huống bạn đang gặp. Ví dụ:\n- 113: Báo cáo tai nạn giao thông, tội phạm, hoặc các tình huống đe dọa an ninh.\n- 114: Báo cáo cháy nổ, sự cố liên quan đến gas hoặc hóa chất nguy hiểm.\n- 115: Gọi cấp cứu y tế khi có người bị thương nặng hoặc đe dọa tính mạng.',
-      },
-      {
-        title: 'Bước 3: Cung cấp thông tin cần thiết',
-        content:
-          'Khi liên lạc với dịch vụ cứu hộ, hãy bình tĩnh và cung cấp thông tin chi tiết bao gồm:\n- Địa điểm chính xác của sự cố (nếu có thể, mô tả cụ thể vị trí).\n- Loại sự cố (cháy, tai nạn, người bị thương...)\n- Số lượng người bị ảnh hưởng và mức độ nghiêm trọng của tình huống.\n- Các thông tin khác có thể giúp đội cứu hộ phản ứng nhanh hơn (ví dụ: lửa có lan rộng không, người bị thương có tỉnh táo không...).',
-      },
-      {
-        title: 'Bước 4: Chờ cứu hộ và đảm bảo an toàn',
-        content:
-          'Sau khi gọi cứu hộ, hãy làm theo hướng dẫn của nhân viên trực tổng đài và cố gắng giữ an toàn cho bạn và người xung quanh. Trong trường hợp cháy nổ hoặc nguy hiểm khác, hãy tìm cách sơ tán đến nơi an toàn và chờ cứu hộ đến.',
-      },
-      {
-        title: 'Lưu ý quan trọng khi gọi cứu hộ',
-        content:
-          '1. Luôn giữ bình tĩnh và trả lời các câu hỏi của tổng đài viên một cách rõ ràng.\n2. Tránh hoảng loạn hoặc cúp máy khi chưa được hướng dẫn.\n3. Nếu bạn không thể nói được, hãy tìm cách cung cấp thông tin qua tin nhắn hoặc sử dụng các ứng dụng khẩn cấp nếu có.\n4. Không gọi số cứu hộ nếu không thực sự cần thiết, vì có thể làm ảnh hưởng đến người đang gặp tình huống nguy hiểm hơn.',
-      },
-    ],
-  },
-  {
-    id: 4,
-    image: images.nhactrutinh,
-    type: ETypeData.VIDEO,
-    youtubeId: 'rq8-L9C_bRE',
-    title: 'Hướng Dẫn Gọi Cứu Hộ Khi Cần Thiết',
-    description:
-      'Khi gặp tình huống khẩn cấp như tai nạn giao thông, cháy nổ, hoặc sự cố đe dọa tính mạng, việc gọi cứu hộ kịp thời là rất quan trọng. Bài viết này sẽ cung cấp hướng dẫn chi tiết về cách gọi cứu hộ, những thông tin cần cung cấp và những lưu ý quan trọng để đảm bảo an toàn cho bạn và người xung quanh.',
-    body: [
-      {
-        title: 'Bước 1: Xác định tình huống khẩn cấp',
-        content:
-          'Đầu tiên, hãy nhanh chóng đánh giá tình huống để xác định xem có cần thiết phải gọi cứu hộ hay không. Nếu bạn hoặc người xung quanh đang gặp nguy hiểm về tính mạng hoặc cần hỗ trợ khẩn cấp, hãy gọi ngay cho các dịch vụ cứu hộ như 113 (cảnh sát), 114 (cứu hỏa), hoặc 115 (cấp cứu y tế).',
-      },
-      {
-        title: 'Bước 2: Gọi số cứu hộ phù hợp',
-        content:
-          'Dùng điện thoại để gọi đến số cứu hộ phù hợp với tình huống bạn đang gặp. Ví dụ:\n- 113: Báo cáo tai nạn giao thông, tội phạm, hoặc các tình huống đe dọa an ninh.\n- 114: Báo cáo cháy nổ, sự cố liên quan đến gas hoặc hóa chất nguy hiểm.\n- 115: Gọi cấp cứu y tế khi có người bị thương nặng hoặc đe dọa tính mạng.',
-      },
-      {
-        title: 'Bước 3: Cung cấp thông tin cần thiết',
-        content:
-          'Khi liên lạc với dịch vụ cứu hộ, hãy bình tĩnh và cung cấp thông tin chi tiết bao gồm:\n- Địa điểm chính xác của sự cố (nếu có thể, mô tả cụ thể vị trí).\n- Loại sự cố (cháy, tai nạn, người bị thương...)\n- Số lượng người bị ảnh hưởng và mức độ nghiêm trọng của tình huống.\n- Các thông tin khác có thể giúp đội cứu hộ phản ứng nhanh hơn (ví dụ: lửa có lan rộng không, người bị thương có tỉnh táo không...).',
-      },
-      {
-        title: 'Bước 4: Chờ cứu hộ và đảm bảo an toàn',
-        content:
-          'Sau khi gọi cứu hộ, hãy làm theo hướng dẫn của nhân viên trực tổng đài và cố gắng giữ an toàn cho bạn và người xung quanh. Trong trường hợp cháy nổ hoặc nguy hiểm khác, hãy tìm cách sơ tán đến nơi an toàn và chờ cứu hộ đến.',
-      },
-      {
-        title: 'Lưu ý quan trọng khi gọi cứu hộ',
-        content:
-          '1. Luôn giữ bình tĩnh và trả lời các câu hỏi của tổng đài viên một cách rõ ràng.\n2. Tránh hoảng loạn hoặc cúp máy khi chưa được hướng dẫn.\n3. Nếu bạn không thể nói được, hãy tìm cách cung cấp thông tin qua tin nhắn hoặc sử dụng các ứng dụng khẩn cấp nếu có.\n4. Không gọi số cứu hộ nếu không thực sự cần thiết, vì có thể làm ảnh hưởng đến người đang gặp tình huống nguy hiểm hơn.',
+          'Chỉ mua sắm tại các trang web uy tín và không cung cấp thông tin thẻ tín dụng trên các trang web không có chứng chỉ bảo mật.',
       },
     ],
   },
 ]
 
-export const totalData = [...videoData]
+export const totalData = [...technologyData]

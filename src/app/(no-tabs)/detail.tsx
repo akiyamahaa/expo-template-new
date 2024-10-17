@@ -1,15 +1,64 @@
-import { ImageBackground, ScrollView, StatusBar, Text, View } from 'react-native'
-import React from 'react'
+import {
+  Image,
+  ImageBackground,
+  ScrollView,
+  StatusBar,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native'
+import React, { useEffect, useState } from 'react'
 import ScreenWrapper from '@/components/ScreenWrapper'
-import { images } from '@/constants'
 import ButtonBack from '@/components/elder/ButtonBack'
+import { useLocalSearchParams } from 'expo-router'
+import { totalData } from '../data/data'
+import * as Speech from 'expo-speech'
+import { speakText } from '@/utils/function'
 
 const DetailPage = () => {
+  const params = useLocalSearchParams()
+  const { id, type }: any = params
+  console.log('🚀 ~ DetailPage ~', id, type)
+  const [data] = useState(
+    totalData.find((item) => item.id === Number(id) && item.type === Number(type)),
+  )
+
+  const handleSpeak = async () => {
+    // Speak title, description, and body items with delay between each
+    if (data?.title) {
+      await speakText(data.title)
+      await new Promise((resolve) => setTimeout(resolve, 1000)) // Wait 1 second
+    }
+
+    if (data?.description) {
+      await speakText(data.description)
+      await new Promise((resolve) => setTimeout(resolve, 1000)) // Wait 1 second
+    }
+
+    if (Array.isArray(data?.body)) {
+      for (const item of data.body) {
+        if (item?.title) {
+          await speakText(item.title)
+          await new Promise((resolve) => setTimeout(resolve, 1000)) // Wait 1 second
+        }
+        if (item?.content) {
+          await speakText(item.content)
+          await new Promise((resolve) => setTimeout(resolve, 1000)) // Wait 1 second
+        }
+      }
+    }
+  }
+  useEffect(() => {
+    return () => {
+      Speech.stop() // This stops any ongoing speech
+    }
+  }, [data])
+
   return (
     <View className="flex-1 bg-gray-200">
       <View>
         <StatusBar barStyle={'light-content'} />
-        <ImageBackground source={images.cachsudungcongnghe} className="h-52 w-full relative">
+        <ImageBackground source={{ uri: data?.image }} className="h-52 w-full relative z-10">
           <ScreenWrapper>
             <View className="flex-row px-5 relative z-10">
               <ButtonBack isBlur={true} />
@@ -20,19 +69,31 @@ const DetailPage = () => {
         </ImageBackground>
       </View>
       <ScrollView className="flex-1 px-4 py-6 bg-background-300 -mt-4 rounded-t-3xl space-y-4">
+        <TouchableOpacity onPress={handleSpeak}>
+          <View className="w-full text-center bg-primary-600 p-2.5 rounded-xl mt-4">
+            <Text className="text-center text-white text-lg font-semibold">Đọc nội dung</Text>
+          </View>
+        </TouchableOpacity>
         <View>
-          <Text className="font-bold text-[20px] text-gray-800">Sử dụng internet an toàn</Text>
+          <Text className="font-bold text-[20px] text-gray-800">{data?.title}</Text>
         </View>
         <View className="space-y-4">
-          <Text className="text-base text-gray-500 leading-6">
-            Lorem ipsum dolor sit amet consectetur. Ultrices curabitur lectus vitae amet aliquam.
-            Vitae pharetra viverra augue mi. Varius eu massa nisl et ipsum. Elementum nunc
-            ullamcorper id nisi egestas leo adipiscing nisl. Orci dui molestie ultrices nec est
-            malesuada. Neque nunc aliquet tincidunt dolor eleifend tincidunt eget proin. Dignissim
-            fusce libero viverra amet gravida id dolor tristique. Integer pharetra netus donec
-            sollicitudin risus amet morbi. Rhoncus vitae et vitae tellus convallis aliquam
-            tristique. Semper quam fames suspendisse est.
-          </Text>
+          <Text className="text-base text-gray-500 leading-6">{data?.description}</Text>
+        </View>
+        <View className="space-y-4">
+          {data?.body.map((bodyElm) => (
+            <View key={`${data.title}-${bodyElm.title}`} className="space-y-2">
+              <Text className="font-semibold text-md text-gray-800">{bodyElm.title}</Text>
+              {bodyElm.image && (
+                <Image
+                  source={bodyElm.image}
+                  className="w-full h-52 rounded-lg"
+                  resizeMode="cover"
+                />
+              )}
+              <Text className="text-base text-gray-500">{bodyElm.content}</Text>
+            </View>
+          ))}
         </View>
         <View className="h-12" />
       </ScrollView>
