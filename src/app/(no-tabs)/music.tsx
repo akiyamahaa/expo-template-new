@@ -5,7 +5,7 @@ import Header from '@/components/elder/Header'
 import SlideImage from '@/components/slider'
 import CollectionCard from '@/components/music/CollectionCard'
 import SingerCard from '@/components/music/SingerCard'
-import ButtonSearch from '@/components/elder/ButtonSearch'
+// import ButtonSearch from '@/components/elder/ButtonSearch'
 import { listAlbums, listAuthor } from '../data/music'
 import { EMusicType } from '@/types/common'
 import { getRandomArray } from '@/utils/function'
@@ -19,9 +19,9 @@ const music = () => {
             <Header />
             <View className="space-y-4">
               <Text className="text-3xl text-gray-800 leading-9">Gợi ý cho bạn</Text>
-              <View className="my-4">
+              {/* <View className="my-4">
                 <ButtonSearch />
-              </View>
+              </View> */}
             </View>
           </View>
         </ScreenWrapper>

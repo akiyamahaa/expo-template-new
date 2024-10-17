@@ -141,4 +141,48 @@ export const exercisesData: IData[] = [
   },
 ]
 
-export const totalData = [...technologyData, ...exercisesData]
+export const newsData: IData[] = [
+  {
+    id: 4,
+    image:
+      'https://congdoan.vnuf.edu.vn/documents/764576/0/B%C3%A0i%20th%C6%A1%20v%C3%B4%20%C4%91%E1%BB%81.jpg?t=1558494928310',
+    type: ETypeData.LIBRARY,
+    title: 'Văn Thơ Cho Người Già',
+    description:
+      'Văn thơ không chỉ là một hình thức nghệ thuật mà còn là cách để người cao tuổi nuôi dưỡng tâm hồn, tìm lại sự bình yên và niềm vui trong cuộc sống. Bài viết này sẽ giúp bạn khám phá những thể loại thơ văn phù hợp với người cao tuổi.',
+    body: [
+      {
+        title: '1. Thơ Lục Bát - Sự Bình Yên Trong Từng Vần Thơ',
+        content:
+          'Thơ lục bát là thể loại thơ truyền thống của người Việt, với nhịp điệu nhẹ nhàng, gợi nhớ về quê hương, gia đình và những kỷ niệm xưa cũ. Người cao tuổi có thể tìm thấy sự bình yên trong những câu thơ lục bát với hình ảnh gần gũi và lời thơ dễ nhớ.',
+      },
+      {
+        title: '2. Thơ Đường - Nét Cổ Điển Và Sâu Lắng',
+        content:
+          'Thơ Đường với cấu trúc nghiêm ngặt và câu từ tinh tế mang đến cho người già một không gian suy ngẫm về đời sống, thiên nhiên, và triết lý nhân sinh. Việc đọc và thưởng thức thơ Đường giúp người cao tuổi giữ được tinh thần thanh tịnh và sự thư giãn tâm hồn.',
+      },
+      {
+        title: '3. Văn Học Trữ Tình - Tìm Lại Niềm Vui Cuộc Sống',
+        content:
+          'Văn học trữ tình với những câu chuyện đầy cảm xúc về tình yêu, gia đình và cuộc sống mang đến cho người cao tuổi sự gợi nhớ và cảm giác đồng cảm. Các tác phẩm này giúp họ dễ dàng bày tỏ cảm xúc và tìm thấy niềm vui trong những điều giản dị.',
+      },
+      {
+        title: '4. Thơ Về Cuộc Sống - Sự Trải Nghiệm Và Tri Ân',
+        content:
+          'Những bài thơ về cuộc sống mang đến góc nhìn sâu sắc về những trải nghiệm mà người cao tuổi đã đi qua. Thơ viết về cuộc đời không chỉ là sự tri ân với quá khứ, mà còn là sự hy vọng vào một tương lai tươi sáng, với lòng biết ơn và sự bình an.',
+      },
+      {
+        title: '5. Sáng Tác Thơ - Cách Thức Tự Bày Tỏ Tâm Tư',
+        content:
+          'Việc tự sáng tác thơ là cách để người già bày tỏ tâm tư, chia sẻ câu chuyện cuộc đời và gửi gắm những suy tư về cuộc sống. Thông qua những vần thơ tự sáng tác, họ có thể giải tỏa căng thẳng, kết nối với cảm xúc nội tâm và tạo ra những giá trị nghệ thuật độc đáo.',
+      },
+      {
+        title: '6. Các Câu Lạc Bộ Thơ - Kết Nối Và Chia Sẻ',
+        content:
+          'Tham gia các câu lạc bộ thơ là cách để người cao tuổi gặp gỡ, chia sẻ những vần thơ của mình với những người có cùng sở thích. Đây là môi trường tốt để trao đổi và phát triển tình yêu với thơ ca, giúp họ duy trì niềm vui trong cuộc sống hàng ngày.',
+      },
+    ],
+  },
+]
+
+export const totalData = [...technologyData, ...exercisesData, ...newsData]
